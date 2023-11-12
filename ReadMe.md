@@ -63,9 +63,6 @@ JSON file used with json-server: db.json
 
 ```
 
-
-
-
 ## Challenges
 
 1. Data collection
