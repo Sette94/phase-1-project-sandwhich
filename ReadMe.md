@@ -31,40 +31,45 @@ JSON file used with json-server: db.json
   "ingredients": [
     {
       "id": 1,
-      "name": "Lettuce",
-      "url": "https://example.com/lettuce.jpg"
+      "name": "Fried Chicken",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Fried-Chicken-Set.jpg/640px-Fried-Chicken-Set.jpg"
     },
     {
       "id": 2,
-      "name": "Tomato",
-      "url": "https://example.com/tomato.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Cheese",
-      "url": "https://example.com/cheese.jpg"
+      "name": "Roll",
+      "url": "https://www.melskitchencafe.com/wp-content/uploads/french-bread-roll1.jpg"
     }
   ],
   "sandwiches": [
     {
       "id": 1,
-      "name": "Ham and Cheese Sandwich",
-      "ingredients": ["Ham", "Cheese", "Lettuce", "Tomato"],
-      "url": "https://example.com/ham_and_cheese_sandwich.jpg"
-    },
+      "name": "Fried Chicken",
+      "sandwich-ingredients-ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "url": "https://www.pamperedchef.com/iceberg/com/recipe/1766367-lg.jpg"
+    }
     {
       "id": 2,
-      "name": "Turkey and Bacon Sandwich",
-      "ingredients": ["Turkey", "Bacon", "Lettuce", "Tomato"],
-      "url": "https://example.com/turkey_and_bacon_sandwich.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Veggie Sandwich",
-      "ingredients": ["Lettuce", "Tomato", "Cheese"],
-      "url": "https://example.com/veggie_sandwich.jpg"
+      "name": "Pesto, Mozzarella, Tomato Caprese",
+      "sandwich-ingredients-ids": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "url": "https://www.culinaryhill.com/wp-content/uploads/2023/08/Caprese-Sandwich-1200x800-Culinary-Hill.jpg"
     }
   ]
+  "size": [
+    {
+      "id": 1,
+      "type": "small",
+      "inches": 6
+    }]
 }
 
 ```
