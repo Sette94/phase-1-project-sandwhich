@@ -1,5 +1,8 @@
 # SandWhich
 
+<img width="787" alt="Screen Shot 2023-11-13 at 3 40 34 PM" src="https://github.com/Sette94/phase-1-project-sandwhich/assets/147007475/a27a0c78-c854-4f3b-a589-b217c7dd8322">
+
+
 ## Description
 
 Are you hungry for a sandwich but can't decide? SandWhich provides a selection of raw ingredients and suggests a sandwich based on those ingredients.
