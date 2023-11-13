@@ -51,7 +51,7 @@ JSON file used with json-server: db.json
         4
       ],
       "url": "https://www.pamperedchef.com/iceberg/com/recipe/1766367-lg.jpg"
-    }
+    },
     {
       "id": 2,
       "name": "Pesto, Mozzarella, Tomato Caprese",
@@ -63,7 +63,7 @@ JSON file used with json-server: db.json
       ],
       "url": "https://www.culinaryhill.com/wp-content/uploads/2023/08/Caprese-Sandwich-1200x800-Culinary-Hill.jpg"
     }
-  ]
+  ],
   "size": [
     {
       "id": 1,
