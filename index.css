@@ -1,0 +1,12 @@
+/*1. Statz's code: I'm adding some CSS styles to control the size and layout of the images. */
+#menu {
+    display: flex; /* Use flexbox to horizontally align the images */
+    justify-content: center; /* Center the images horizontally */
+    align-items: center; /* Center the images vertically */
+}
+.sandwich-image {
+    width: 100px; /* Set the width of each image */
+    height: 100px; /* Set the height of each image */
+    object-fit: cover; /* Maintain aspect ratio while filling the container */
+    margin: 5px; /*Add some margin between the images*/
+}
