@@ -77,5 +77,6 @@ JSON file used with json-server: db.json
 ## Kanban
 
 [Kanban Board](https://trello.com/b/GtB1xzf0/sandwhich)
+![SandWhich Kanban](https://github.com/Sette94/phase-1-project-sandwhich/assets/63803745/88272cdf-e0bb-4fdd-991f-d2134ddc6d96)
 
 
