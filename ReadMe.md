@@ -1,7 +1,10 @@
 # SandWhich
 
-<img width="787" alt="Screen Shot 2023-11-13 at 3 40 34 PM" src="https://github.com/Sette94/phase-1-project-sandwhich/assets/147007475/a27a0c78-c854-4f3b-a589-b217c7dd8322">
+<img width="394" alt="Screen Shot 2023-11-13 at 3 41 54 PM" src="https://github.com/Sette94/phase-1-project-sandwhich/assets/147007475/f23ac41a-e3ad-4dd5-8516-0fddca63a0c4">
 
+<img width="384" alt="Screen Shot 2023-11-13 at 3 42 07 PM" src="https://github.com/Sette94/phase-1-project-sandwhich/assets/147007475/9fc9dcb8-8661-430a-bc8f-33248198012f">
+
+<img width="193" alt="Screen Shot 2023-11-13 at 3 42 23 PM" src="https://github.com/Sette94/phase-1-project-sandwhich/assets/147007475/e77a0b1e-c65d-4e49-a20d-afb44558f4ab">
 
 ## Description
 
