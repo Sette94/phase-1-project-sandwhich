@@ -1,0 +1,87 @@
+{
+  "ingredients": [
+    {
+      "id": 1,
+      "name": "Lettuce",
+      "url": "https://example.com/lettuce.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Tomato",
+      "url": "https://example.com/tomato.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Cheese",
+      "url": "https://example.com/cheese.jpg"
+    }
+  ],
+  "sandwiches": [
+    {
+      "id": 1,
+      "name": "Ham and Cheese Sandwich",
+      "ingredients": ["Ham", "Cheese", "Lettuce", "Tomato"],
+      "url": "https://example.com/ham_and_cheese_sandwich.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Turkey and Bacon Sandwich",
+      "ingredients": ["Turkey", "Bacon", "Lettuce", "Tomato"],
+      "url": "https://example.com/turkey_and_bacon_sandwich.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Veggie Sandwich",
+      "ingredients": ["Lettuce", "Tomato", "Cheese"],
+      "url": "https://example.com/veggie_sandwich.jpg"
+    }
+  ],
+    "bread": [
+      {
+        "id": 1,
+        "type": "white",
+        "image": "https://images.app.goo.gl/mEwjNqAqwWHoqUEw9"
+      },
+      {
+        "id": 2,
+        "type": "wheat",
+        "image": "https://images.app.goo.gl/azjCLLGFvnFqyFqcA"
+      },
+      {
+        "id": 3,
+        "type": "rosemary garlic",
+        "image": "https://images.app.goo.gl/uxNaV6grHy3WR89MA"
+      }
+  ],
+    "condiments": [
+      {
+        "id": 1,
+        "type": "mayo"
+      },
+      {
+        "id": 2,
+        "type": "mustard"
+      },
+      {
+        "id":3,
+        "type": "garlic ailoi"
+      }
+  ],
+    "size": [
+      {
+        "id": 1,
+        "type": "small",
+        "inches": 6
+      },
+      {
+        "id": 2,
+        "type": "regular",
+        "inches": 12
+      },
+      {
+        "id": 3,
+        "type": "large",
+        "inches": 16
+      }
+    ]
+}
