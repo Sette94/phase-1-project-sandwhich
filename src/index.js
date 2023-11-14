@@ -6,6 +6,7 @@
 //1.1 Getting ID's to render the images
 const sandwichMenu = document.getElementById('menu')
 const ingredientsList = document.getElementById('ingredients')
+const focusedSandwich = document.getElementById('focusedSandwich')
 
 
 //1.2 Function to create images
@@ -54,7 +55,7 @@ function renderSandwichIngredientList(ingredients) {
     ul.appendChild(img)
     ul.appendChild(p)
 
-
+   
 
 }
 
