@@ -30,8 +30,8 @@
     /*Add some margin between the images*/
 }
 
-#ingredientsTitle {
-    padding-left: 90%;
+#IngredientsContainer {
+    padding-left: 70%;
     /* Move Ingredients Title to the right side of the page. */
     font-family: 'Cherry Cream Soda', sans-serif;
     /* Set font for Ingredients title*/
@@ -41,7 +41,7 @@
 }
 
 #ingredients {
-    float: right
+    float: left
         /* Move Ingredients container to the right side of the page*/
 }
 
