@@ -8,7 +8,6 @@ const sandwichMenu = document.getElementById('menu')
 const ingredientsList = document.getElementById('ingredients')
 const focusedSandwich = document.getElementById('focusedSandwich')
 
-
 //1.2 Function to create images
 function createSandwichImage(sandwich) {
     const img = document.createElement('img')
@@ -37,8 +36,8 @@ sandwichMenu.addEventListener('click', (e) => {
                         renderSandwichIngredientList(data)
                     })
             })
+            getrandomSandwich(data)
         })
-
 })
 
 function addFocusedSandwich(sandwich) {
@@ -61,14 +60,9 @@ function renderSandwichIngredientList(ingredients) {
     img.src = ingredients.url
     img.classList.add('ingredient-image') //Add a CSS class to the img element
 
-
     ul.appendChild(img)
     ul.appendChild(p)
-
-   
-
 }
-
 
 //1.3 Make an HTTP GET request to fetch the sandwich data from the server
 fetch('http://localhost:3000/sandwiches')
@@ -83,6 +77,7 @@ fetch('http://localhost:3000/sandwiches')
     .catch(error => {
         console.error('Error fetching data:', error)
     })
+
 
 
 
