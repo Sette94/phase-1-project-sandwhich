@@ -53,17 +53,6 @@ sandwichMenu.addEventListener('click', (e) => {
 
 
 
-// sandwichMenu.addEventListener(
-//     'mouseover',
-//     (event) => {
-//         // highlight the mouseenter target
-//         console.log(event.x)
-//         event.target.style.color = "purple";
-//     },
-//     false,
-// );
-
-
 
 
 
