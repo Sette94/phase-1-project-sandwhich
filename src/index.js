@@ -62,7 +62,7 @@ sandwichMenu.addEventListener('click', (e) => {
 function addFocusedSandwich(sandwich) {
     const img = document.createElement('img')
     img.src = sandwich.url
-    img.classList.add('sandwich-image') //Add a CSS class to the img element
+    img.classList.add('sandwich-clicked') //Add a CSS class to the img element
     focusedSandwich.appendChild(img) //Append the created img element to the sandwichMenu div
 }
 
@@ -97,8 +97,9 @@ fetch('http://localhost:3000/sandwiches')
     })
 
 //3. Statz's code: Create randomizer event listener
-const randomButtonContainer = document.getElementById('randomButton')
+const randomButtonContainer = document.getElementById('randomButtonContainer')
 let randomButton = document.createElement('button')
+randomButton.setAttribute('id', 'randomButton')
 randomButton.textContent = "Random Sandwich"
 randomButtonContainer.appendChild(randomButton)
 

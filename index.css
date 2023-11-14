@@ -1,4 +1,21 @@
 /*1. Statz's code: I'm adding some CSS styles to control the size and layout of the images. */
+html {
+    background: #f1c67a;
+}
+
+#title {
+    background: #362945;
+    color: #fff3f5;
+}
+
+#randomButton {
+    background: #edb2c2;
+}
+
+h3 {
+    background: #c45165
+}
+
 #menu {
     display: flex;
     /* Use flexbox to horizontally align the images */
@@ -30,19 +47,37 @@
     /*Add some margin between the images*/
 }
 
-#IngredientsContainer {
-    padding-left: 70%;
-    /* Move Ingredients Title to the right side of the page. */
-    font-family: 'Cherry Cream Soda', sans-serif;
-    /* Set font for Ingredients title*/
-    font-size: 25px;
-    /* Set font size for Ingredients title*/
-
+#page-container {
+    display: flex;
 }
 
-#ingredients {
-    float: left
-        /* Move Ingredients container to the right side of the page*/
+.sandwich-clicked {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+
+#IngredientsContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /*Align items to the start (left) of the container*/
+    /* vertical-align: middle;
+    display: inline-block;
+    padding: 1rem 1rem; */
+}
+
+#ingredientsTitle {
+    margin-bottom: 10px; /* Add spacing between title and the ingredients list */
+}
+
+
+.ingredient-image {
+    /* Add styles for the ingredient images as needed */
+    max-width: 100px; /* Set the maximum width of the images */
+    height: auto;
 }
 
 p {
