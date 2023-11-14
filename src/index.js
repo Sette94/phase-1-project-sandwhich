@@ -26,6 +26,9 @@ sandwichMenu.addEventListener('click', (e) => {
     fetch(`http://localhost:3000/sandwiches/${sandwichId}`)
         .then(res => res.json())
         .then(data => {
+            focusedSandwich.innerHTML = ""
+            console.log(data.url)
+            addFocusedSandwich(data)
             let ingredientsIds = data['sandwich-ingredients-ids']
             ingredientsIds.forEach(id => {
                 fetch(`http://localhost:3000/ingredients/${id}`)
@@ -37,6 +40,13 @@ sandwichMenu.addEventListener('click', (e) => {
         })
 
 })
+
+function addFocusedSandwich(sandwich) {
+    const img = document.createElement('img')
+    img.src = sandwich.url
+    img.classList.add('sandwich-image') //Add a CSS class to the img element
+    focusedSandwich.appendChild(img) //Append the created img element to the sandwichMenu div
+}
 
 function renderSandwichIngredientList(ingredients) {
 
