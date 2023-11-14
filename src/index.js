@@ -7,6 +7,7 @@
 const sandwichMenu = document.getElementById('menu')
 const ingredientsList = document.getElementById('ingredients')
 const focusedSandwich = document.getElementById('focusedSandwich')
+let allSandwiches = ''
 
 //1.2 Function to create images
 function createSandwichImage(sandwich) {
@@ -36,7 +37,6 @@ sandwichMenu.addEventListener('click', (e) => {
                         renderSandwichIngredientList(data)
                     })
             })
-            getrandomSandwich(data)
         })
 })
 
@@ -68,7 +68,8 @@ function renderSandwichIngredientList(ingredients) {
 fetch('http://localhost:3000/sandwiches')
     .then((res) => res.json())
     .then(data => {
-
+        allSandwiches = data
+        console.log(allSandwiches)
         //1.4 Iterate through the sandwich objects and create img tags for each
         data.forEach(sandwich => {
             createSandwichImage(sandwich)
@@ -78,7 +79,34 @@ fetch('http://localhost:3000/sandwiches')
         console.error('Error fetching data:', error)
     })
 
+//3. Statz's code: Create randomizer event listener
+const randomButtonContainer = document.getElementById('randomButton')
+let randomButton = document.createElement('button')
+randomButtonContainer.appendChild(randomButton)
 
+randomButtonContainer.addEventListener('click', () => {
+    let randomSandwichId = getrandomSandwich()
+    fetch(`http://localhost:3000/sandwiches/${randomSandwichId}`)
+        .then(res => res.json())
+        .then(data => {
+            focusedSandwich.innerHTML = ""
+            console.log(data.url)
+            addFocusedSandwich(data)
+            let ingredientsIds = data['sandwich-ingredients-ids']
+            ingredientsIds.forEach(id => {
+                fetch(`http://localhost:3000/ingredients/${id}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        renderSandwichIngredientList(data)
+                    })
+            })
+        })
+})
+function getrandomSandwich() {
 
-
-
+   //3.1 Randomly select a sandwich
+   const randomIndex = Math.floor(Math.random() * allSandwiches.length) + 1
+   //const randomSandwichId = allSandwiches[randomIndex].getAttribute('data-id')
+   console.log(randomIndex)
+   return randomIndex
+}
