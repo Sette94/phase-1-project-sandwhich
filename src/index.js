@@ -8,17 +8,26 @@ const sandwichMenu = document.getElementById('menu')
 const ingredientsList = document.getElementById('ingredients')
 const focusedSandwich = document.getElementById('focusedSandwich')
 
+
 //1.2 Function to create images
 function createSandwichImage(sandwich) {
     const img = document.createElement('img')
     img.src = sandwich.url
     img.classList.add('sandwich-image') //Add a CSS class to the img element
     img.setAttribute('data-id', sandwich.id); // Set the data-id attribute to store the sandwich id
+
+    img.addEventListener(
+        'mouseenter',
+        (event) => {
+            event.target.classList.add('enlarge')
+
+        }
+    );
+
     sandwichMenu.appendChild(img) //Append the created img element to the sandwichMenu div
 }
 
 sandwichMenu.addEventListener('click', (e) => {
-    e.preventDefault()
     const clickedImg = e.target;
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
     console.log(sandwichId);
@@ -42,13 +51,21 @@ sandwichMenu.addEventListener('click', (e) => {
 
 
 
-sandwichMenu.addEventListener('mouseover', () => {
-    sandwichMenu.style.backgroundColor = 'blue';
-})
 
-sandwichMenu.addEventListener('mouseout', () => {
-    sandwichMenu.style.backgroundColor = '';
-})
+
+// sandwichMenu.addEventListener(
+//     'mouseover',
+//     (event) => {
+//         // highlight the mouseenter target
+//         console.log(event.x)
+//         event.target.style.color = "purple";
+//     },
+//     false,
+// );
+
+
+
+
 
 
 
@@ -97,7 +114,6 @@ randomButton.textContent = "Random Sandwich"
 randomButtonContainer.appendChild(randomButton)
 
 randomButtonContainer.addEventListener('click', (e) => {
-    e.preventDefault()
     getrandomSandwich()
         .then(randomSandwichId => {
             console.log(randomSandwichId)
