@@ -30,7 +30,35 @@ function createSandwichImage(sandwich) {
 sandwichMenu.addEventListener('click', (e) => {
     const clickedImg = e.target;
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
-    console.log(sandwichId);
+    
+
+
+
+
+
+
+    const sandwichForm = document.getElementById('sandwichForm');
+    sandwichForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        console.log(event.target["new-comment"].value)
+            
+        console.log(sandwichId);
+
+        fetch(`http://localhost:3000/sandwiches/${sandwichId}`, {
+            method: 'PATCH',
+            headers: {
+           'Content-Type': 'application/json',
+            },
+               body: JSON.stringify({
+                commentsArr: event.target["new-comment"].value
+            }),
+          })
+            .catch(error => console.error('Error:', error));
+        });
+
+
+
+
     ingredientsList.innerHTML = ""
     fetch(`http://localhost:3000/sandwiches/${sandwichId}`)
         .then(res => res.json())
@@ -144,8 +172,5 @@ function getrandomSandwich() {
         });
 }
 
-const sandwichForm = document.getElementById('sandwichForm');
-sandwichForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    console.log(event.target["new-comment"].value)
-        });
+
+   
