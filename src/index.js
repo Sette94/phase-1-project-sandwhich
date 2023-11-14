@@ -50,7 +50,7 @@ sandwichMenu.addEventListener('click', (e) => {
            'Content-Type': 'application/json',
             },
                body: JSON.stringify({
-                commentsArr: event.target["new-comment"].value
+                commentsArr: "commentsArr".push(event.target["new-comment"].value)
             }),
           })
             .catch(error => console.error('Error:', error));
