@@ -8,6 +8,8 @@ const sandwichMenu = document.getElementById('menu')
 const ingredientsList = document.getElementById('ingredients')
 const focusedSandwich = document.getElementById('focusedSandwich')
 
+let sandwhichComments = []
+
 
 //1.2 Function to create images
 function createSandwichImage(sandwich) {
@@ -15,6 +17,9 @@ function createSandwichImage(sandwich) {
     img.src = sandwich.url
     img.classList.add('sandwich-image') //Add a CSS class to the img element
     img.setAttribute('data-id', sandwich.id); // Set the data-id attribute to store the sandwich id
+    sandwhichComments = sandwich.commentsArr
+    console.log(sandwhichComments)
+    //TO DO Render comments array here, clear old
 
     img.addEventListener(
         'mouseenter',
@@ -30,35 +35,25 @@ function createSandwichImage(sandwich) {
 sandwichMenu.addEventListener('click', (e) => {
     const clickedImg = e.target;
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
-    
-
-
-
-
-
-
     const sandwichForm = document.getElementById('sandwichForm');
-    sandwichForm.addEventListener('submit', function(event) {
+    sandwichForm.addEventListener('submit', function (event) {
         event.preventDefault();
         console.log(event.target["new-comment"].value)
-            
+
         console.log(sandwichId);
+        sandwhichComments.push(event.target["new-comment"].value)
 
         fetch(`http://localhost:3000/sandwiches/${sandwichId}`, {
             method: 'PATCH',
             headers: {
-           'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
             },
-               body: JSON.stringify({
-                commentsArr: "commentsArr".push(event.target["new-comment"].value)
+            body: JSON.stringify({
+                commentsArr: sandwhichComments
             }),
-          })
+        })
             .catch(error => console.error('Error:', error));
-        });
-
-
-
-
+    });
     ingredientsList.innerHTML = ""
     fetch(`http://localhost:3000/sandwiches/${sandwichId}`)
         .then(res => res.json())
@@ -88,9 +83,13 @@ sandwichMenu.addEventListener('click', (e) => {
 
 
 function addFocusedSandwich(sandwich) {
+    const h2 = document.createElement('h2')
+
+    h2.textContent = sandwich.name
     const img = document.createElement('img')
     img.src = sandwich.url
     img.classList.add('sandwich-clicked') //Add a CSS class to the img element
+    focusedSandwich.appendChild(h2)
     focusedSandwich.appendChild(img) //Append the created img element to the sandwichMenu div
 }
 
@@ -173,4 +172,3 @@ function getrandomSandwich() {
 }
 
 
-   
