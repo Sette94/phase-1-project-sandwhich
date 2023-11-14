@@ -143,3 +143,9 @@ function getrandomSandwich() {
             console.error('Error fetching data:', error);
         });
 }
+
+const sandwichForm = document.getElementById('sandwichForm');
+sandwichForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    console.log(event.target["new-comment"].value)
+        });
