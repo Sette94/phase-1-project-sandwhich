@@ -18,6 +18,7 @@ function createSandwichImage(sandwich) {
 }
 
 sandwichMenu.addEventListener('click', (e) => {
+    e.preventDefault()
     const clickedImg = e.target;
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
     console.log(sandwichId);
@@ -38,6 +39,19 @@ sandwichMenu.addEventListener('click', (e) => {
             })
         })
 })
+
+
+
+sandwichMenu.addEventListener('mouseover', () => {
+    sandwichMenu.style.backgroundColor = 'blue';
+})
+
+sandwichMenu.addEventListener('mouseout', () => {
+    sandwichMenu.style.backgroundColor = '';
+})
+
+
+
 
 function addFocusedSandwich(sandwich) {
     const img = document.createElement('img')
@@ -79,39 +93,47 @@ fetch('http://localhost:3000/sandwiches')
 //3. Statz's code: Create randomizer event listener
 const randomButtonContainer = document.getElementById('randomButton')
 let randomButton = document.createElement('button')
+randomButton.textContent = "Random Sandwich"
 randomButtonContainer.appendChild(randomButton)
 
-randomButtonContainer.addEventListener('click', () => {
-    let randomSandwichId = getrandomSandwich()
-    console.log(randomSandwichId)
-    fetch(`http://localhost:3000/sandwiches/${randomSandwichId}`)
-        .then(res => res.json())
-        .then(data => {
-            focusedSandwich.innerHTML = ""
-            console.log(data.url)
-            addFocusedSandwich(data)
-            let ingredientsIds = data['sandwich-ingredients-ids']
-            ingredientsIds.forEach(id => {
-                fetch(`http://localhost:3000/ingredients/${id}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        renderSandwichIngredientList(data)
+randomButtonContainer.addEventListener('click', (e) => {
+    e.preventDefault()
+    getrandomSandwich()
+        .then(randomSandwichId => {
+            console.log(randomSandwichId)
+            fetch(`http://localhost:3000/sandwiches/${randomSandwichId}`)
+                .then(res => res.json())
+                .then(data => {
+                    focusedSandwich.innerHTML = ""
+                    ingredientsList.innerHTML = ""
+                    console.log(data.url)
+                    addFocusedSandwich(data)
+                    let ingredientsIds = data['sandwich-ingredients-ids']
+                    ingredientsIds.forEach(id => {
+                        fetch(`http://localhost:3000/ingredients/${id}`)
+                            .then(res => res.json())
+                            .then(data => {
+                                renderSandwichIngredientList(data)
+                            })
                     })
-            })
+                })
         })
+
 })
 function getrandomSandwich() {
-    fetch('http://localhost:3000/sandwiches')
-    .then((res) => res.json())
-    .then(data => {
-        console.log(data)
-         //3.1 Randomly select a sandwich
-        const randomIndex = Math.floor(Math.random() * data.length) + 1
-        //const randomSandwichId = allSandwiches[randomIndex].getAttribute('data-id')
-        console.log(randomIndex)
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error)
-    })
-    return randomIndex
+    return fetch('http://localhost:3000/sandwiches')
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Error fetching data');
+            }
+        })
+        .then(data => {
+            let randomIndex = Math.floor(Math.random() * data.length) + 1;
+            return randomIndex;
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 }
