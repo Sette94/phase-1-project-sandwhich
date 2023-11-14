@@ -1,12 +1,51 @@
 /*1. Statz's code: I'm adding some CSS styles to control the size and layout of the images. */
 #menu {
-    display: flex; /* Use flexbox to horizontally align the images */
-    justify-content: center; /* Center the images horizontally */
-    align-items: center; /* Center the images vertically */
+    display: flex;
+    /* Use flexbox to horizontally align the images */
+    justify-content: center;
+    /* Center the images horizontally */
+    align-items: center;
+    /* Center the images vertically */
 }
+
 .sandwich-image {
-    width: 100px; /* Set the width of each image */
-    height: 100px; /* Set the height of each image */
-    object-fit: cover; /* Maintain aspect ratio while filling the container */
-    margin: 5px; /*Add some margin between the images*/
+    width: 200px;
+    /* Set the width of each image */
+    height: 200px;
+    /* Set the height of each image */
+    object-fit: cover;
+    /* Maintain aspect ratio while filling the container */
+    margin: 5px;
+    /*Add some margin between the images*/
+}
+
+.ingredient-image {
+    width: 60px;
+    /* Set the width of each image */
+    height: 60px;
+    /* Set the height of each image */
+    object-fit: cover;
+    /* Maintain aspect ratio while filling the container */
+    margin: 5px;
+    /*Add some margin between the images*/
+}
+
+#ingredientsTitle {
+    padding-left: 90%;
+    font-family: 'Cherry Cream Soda', sans-serif;
+    font-size: 22px;
+
+
+}
+
+#ingredients {
+    font-size: 22px;
+    float: right
+}
+
+p {
+
+    font-family: 'Cherry Cream Soda', sans-serif;
+    font-size: 22px;
+    float: right
 }
