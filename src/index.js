@@ -40,8 +40,8 @@ sandwichMenu.addEventListener('click', (e) => {
 function renderSandwichIngredientList(ingredients) {
 
     console.log(ingredients)
-    const li = document.createElement('li')
-    ingredientsList.append(li)
+    const ul = document.createElement('ul')
+    ingredientsList.append(ul)
 
     const p = document.createElement('p')
     p.innerHTML = ingredients.name
@@ -51,8 +51,8 @@ function renderSandwichIngredientList(ingredients) {
     img.classList.add('ingredient-image') //Add a CSS class to the img element
 
 
-    li.appendChild(img)
-    li.appendChild(p)
+    ul.appendChild(img)
+    ul.appendChild(p)
 
 
 

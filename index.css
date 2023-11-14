@@ -20,9 +20,9 @@
 }
 
 .ingredient-image {
-    width: 60px;
+    width: 80px;
     /* Set the width of each image */
-    height: 60px;
+    height: 80px;
     /* Set the height of each image */
     object-fit: cover;
     /* Maintain aspect ratio while filling the container */
@@ -32,20 +32,32 @@
 
 #ingredientsTitle {
     padding-left: 90%;
+    /* Move Ingredients Title to the right side of the page. */
     font-family: 'Cherry Cream Soda', sans-serif;
-    font-size: 22px;
-
+    /* Set font for Ingredients title*/
+    font-size: 25px;
+    /* Set font size for Ingredients title*/
 
 }
 
 #ingredients {
-    font-size: 22px;
     float: right
+        /* Move Ingredients container to the right side of the page*/
 }
 
 p {
-
     font-family: 'Cherry Cream Soda', sans-serif;
+    /* Set font for Ingredients list*/
     font-size: 22px;
+    /* Set font size for Ingredients list*/
     float: right
+        /* Move Ingredients List to the right side of the page. */
+}
+
+h2 {
+    font-family: 'Cherry Cream Soda', sans-serif;
+    /* Set font for PageTitle*/
+    font-size: 45px;
+    /* Set font size for Page Title*/
+
 }
