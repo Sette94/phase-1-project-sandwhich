@@ -42,18 +42,28 @@ h3 {
     /* Center the images vertically */
 }
 
-#pageContainer:nth-child(1) {
-    align-self: left;
+#formandButton {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+    max-width: 300px;
+    width: 100%;
 }
 
-
-#pageContainer:nth-child(2) {
-    align-self: right;
+#focusedSandwich {
+    text-align: center;
+    margin: 20px;
+    max-width: 600px;
+    /* Set your preferred maximum width */
+    width: 100%;
+    /* Take full width within the container */
 }
 
-#pageContainer:nth-child(3) {
-    align-self: center;
-
+#comments {
+    font-size: 18px;
+    /* Set your preferred font size */
 }
 
 #randomButton {
@@ -69,12 +79,20 @@ h3 {
 
 }
 
+#randomButtonContainer {
+    text-align: center;
+}
+
 
 
 #sandwichForm {
     display: flex;
     margin-top: 20px;
     justify-content: flex-start;
+    max-width: 400px;
+    /* Set your preferred maximum width */
+    width: 100%;
+    /* Take full width within the container */
 }
 
 
@@ -97,6 +115,9 @@ h3 {
     justify-content: center;
     /* Center the images horizontally */
     flex-direction: column;
+    max-width: 400px;
+    /* Set your preferred maximum width */
+    width: 100%;
 
 }
 
@@ -114,21 +135,13 @@ h3 {
 
 
 
-/* #focusedSandwich {
-    position: absolute;
-    top: 60%;
-    right: calc(50% + 20px);
-    transform: translate(50%, -50%);
+h3 {
     display: flex;
+    /* Use flexbox to horizontally align the images */
+    justify-content: left;
+    /* Center the images horizontally */
     flex-direction: column;
-} */
-
-/* .sandwich-clicked {
-    width: 50%;
-    max-height: 70vh;
-    object-fit: contain;
-} */
-
+}
 
 
 
