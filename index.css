@@ -10,7 +10,6 @@ html {
 
 #randomButton {
     background: #edb2c2;
-    font-size: 16px;
     padding: 10px 15px;
 }
 
@@ -98,7 +97,8 @@ h3 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /*Align items to the start (left) of the container*/
+    align-items: flex-end;
+    /*Align items to the start (left) of the container*/
     /* vertical-align: middle;
     display: inline-block;
     padding: 1rem 1rem; */
@@ -106,18 +106,21 @@ h3 {
 }
 
 #ingredientsTitle {
-    margin-bottom: 15px; /* Add spacing between title and the ingredients list */
+    margin-bottom: 15px;
+    /* Add spacing between title and the ingredients list */
     font-size: 24px;
 }
 
 #ingredientsTextBox {
-    width: 200%; /* Setting the width to 100% match container */
+    width: 200%;
+    /* Setting the width to 100% match container */
     margin-top: 10px;
 }
 
 .ingredient-image {
     /* Add styles for the ingredient images as needed */
-    max-width: 100px; /* Set the maximum width of the images */
+    max-width: 100px;
+    /* Set the maximum width of the images */
     height: auto;
 }
 

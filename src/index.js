@@ -154,7 +154,9 @@ function renderSandwichIngredientList(ingredients) {
 const randomButtonContainer = document.getElementById('randomButtonContainer')
 let randomButton = document.createElement('button')
 randomButton.setAttribute('id', 'randomButton')
-randomButton.textContent = "Random Sandwich"
+sandwhichImage = document.createElement('img')
+sandwhichImage.src = './images/RandomSandwhich.PNG'
+randomButton.appendChild(sandwhichImage)
 randomButtonContainer.appendChild(randomButton)
 
 randomButtonContainer.addEventListener('click', (e) => {
