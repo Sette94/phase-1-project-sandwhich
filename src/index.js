@@ -1,26 +1,34 @@
-//1. Statz's code: Index.js : Rendering the the sandwiches at the top of the page. 
-//1. Fetch call to the db.json and parsing out all of the data.
+// SandWhich JS code
 
-//2. Nick's Code: Index.js: Rendering the ingredients through click events 
-
-//1.1 Getting ID's to render the images
+// Establishing our containers of data 
 const sandwichMenu = document.getElementById('menu')
 const ingredientsList = document.getElementById('ingredients')
 const focusedSandwich = document.getElementById('focusedSandwich')
 
-let sandwhichComments = []
+// Setting a global variable 
+let allSandwiches = []
+let focusedSandwichId = ''
+
+//Fetch to get data and make the function call to render the top menu
+fetch('http://localhost:3000/sandwiches')
+    .then((res) => res.json())
+    .then(data => {
+        data.forEach(sandwich => {
+            createSandwichImage(sandwich)
+        })
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error)
+    })
 
 
-//1.2 Function to create images
+// Function to render images on the Menu 
 function createSandwichImage(sandwich) {
     const img = document.createElement('img')
     img.src = sandwich.url
     img.classList.add('sandwich-image') //Add a CSS class to the img element
     img.setAttribute('data-id', sandwich.id); // Set the data-id attribute to store the sandwich id
-    sandwhichComments = sandwich.commentsArr
-    console.log(sandwhichComments)
-    //TO DO Render comments array here, clear old
-
+    allSandwiches.push(sandwich)
     img.addEventListener(
         'mouseenter',
         (event) => {
@@ -32,27 +40,14 @@ function createSandwichImage(sandwich) {
     sandwichMenu.appendChild(img) //Append the created img element to the sandwichMenu div
 }
 
+
+// Click event on the menu to render the selected image in the center of the page and the ingredients list on the side 
 sandwichMenu.addEventListener('click', (e) => {
     const clickedImg = e.target;
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
-    const sandwichForm = document.getElementById('sandwichForm');
-    sandwichForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        sandwhichComments.push(event.target["new-comment"].value)
-
-        fetch(`http://localhost:3000/sandwiches/${sandwichId}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                commentsArr: sandwhichComments
-            }),
-        })
-            .catch(error => console.error('Error:', error));
-    });
     ingredientsList.innerHTML = ""
+
+    focusedSandwichId = sandwichId
     fetch(`http://localhost:3000/sandwiches/${sandwichId}`)
         .then(res => res.json())
         .then(data => {
@@ -68,21 +63,36 @@ sandwichMenu.addEventListener('click', (e) => {
                     })
             })
         })
+
+
 })
 
 
+//Comment form, each update is only pushed to the focused image
+const sandwichForm = document.getElementById('sandwichForm');
+sandwichForm.addEventListener('submit', (event) => { addComments(event, focusedSandwichId) })
+
+function addComments(event, sandwichId) {
+    event.preventDefault()
+    let filteredSandwich = allSandwiches.filter(allSandwiches => allSandwiches.id == sandwichId);
+    filteredSandwich[0].commentsArr.push(event.target["new-comment"].value)
+    fetch(`http://localhost:3000/sandwiches/${sandwichId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            commentsArr: filteredSandwich[0].commentsArr
+        }),
+    })
+        .catch(error => console.error('Error:', error));
+    sandwichForm.reset()
+}
 
 
-
-
-
-
-
-
-
+//The function to create the image in the center of the page 
 function addFocusedSandwich(sandwich) {
     const h2 = document.createElement('h2')
-
     h2.textContent = sandwich.name
     const img = document.createElement('img')
     img.src = sandwich.url
@@ -91,36 +101,23 @@ function addFocusedSandwich(sandwich) {
     focusedSandwich.appendChild(img) //Append the created img element to the sandwichMenu div
 }
 
-function renderSandwichIngredientList(ingredients) {
 
+//The function to create the list of ingredients on the right side of the page 
+function renderSandwichIngredientList(ingredients) {
     const ul = document.createElement('ul')
     ingredientsList.append(ul)
-
     const p = document.createElement('p')
     p.innerHTML = ingredients.name
-
     const img = document.createElement('img')
     img.src = ingredients.url
     img.classList.add('ingredient-image') //Add a CSS class to the img element
-
     ul.appendChild(img)
     ul.appendChild(p)
 }
 
-//1.3 Make an HTTP GET request to fetch the sandwich data from the server
-fetch('http://localhost:3000/sandwiches')
-    .then((res) => res.json())
-    .then(data => {
-        //1.4 Iterate through the sandwich objects and create img tags for each
-        data.forEach(sandwich => {
-            createSandwichImage(sandwich)
-        })
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error)
-    })
 
-//3. Statz's code: Create randomizer event listener
+
+// Creating variables and click event to generate a random image to the center of the page and ingredients list on the right side
 const randomButtonContainer = document.getElementById('randomButtonContainer')
 let randomButton = document.createElement('button')
 randomButton.setAttribute('id', 'randomButton')
@@ -130,20 +127,7 @@ randomButtonContainer.appendChild(randomButton)
 randomButtonContainer.addEventListener('click', (e) => {
     getrandomSandwich()
         .then(randomSandwichId => {
-
-            console.log(randomSandwichId)
-
-            fetch(`http://localhost:3000/sandwiches/${randomSandwichId}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    commentsArr: sandwhichComments
-                }),
-            })
-                .catch(error => console.error('Error:', error))
-
+            focusedSandwichId = randomSandwichId
             fetch(`http://localhost:3000/sandwiches/${randomSandwichId}`)
                 .then(res => res.json())
                 .then(data => {
@@ -163,6 +147,8 @@ randomButtonContainer.addEventListener('click', (e) => {
         })
 
 })
+
+// Function to get a random sandwich from the array of sandwiches
 function getrandomSandwich() {
     return fetch('http://localhost:3000/sandwiches')
         .then(response => {
@@ -182,3 +168,26 @@ function getrandomSandwich() {
 }
 
 
+
+
+
+//TO DO: I want to ensure that no matter how many times I click on images the form below will only patch 1 of them 
+// let sandwichForm = document.getElementById('focusedSandwich');
+// console.log(sandwichForm)
+
+// sandwichForm.addEventListener('submit', function (event) {
+//     event.preventDefault();
+
+//     allSandwiches.commentsArr.push(event.target["new-comment"].value)
+
+//     fetch(`http://localhost:3000/sandwiches/${sandwich.id}`, {
+//         method: 'PATCH',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//             commentsArr: allSandwiches.commentsArr
+//         }),
+//     })
+//         .catch(error => console.error('Error:', error));
+// });
