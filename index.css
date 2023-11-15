@@ -10,6 +10,16 @@ html {
 
 #randomButton {
     background: #edb2c2;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+#randomButtonContainer {
+    margin-bottom: 20px;
+}
+
+#sandwichForm {
+    margin-top: 20px;
 }
 
 h3 {
@@ -26,9 +36,9 @@ h3 {
 }
 
 .sandwich-image {
-    width: 200px;
+    width: 120px;
     /* Set the width of each image */
-    height: 200px;
+    height: 120px;
     /* Set the height of each image */
     object-fit: cover;
     /* Maintain aspect ratio while filling the container */
@@ -48,18 +58,29 @@ h3 {
 }
 
 #page-container {
+    position: relative;
     display: flex;
 }
 
+#focusedSandwich {
+    position: absolute;
+    top: 70%;
+    right: calc(50% + 20px);
+    transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .sandwich-clicked {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
+    width: 50%;
+    max-height: 70vh;
+    object-fit: contain;
 }
 
 
 #IngredientsContainer {
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -67,12 +88,18 @@ h3 {
     /* vertical-align: middle;
     display: inline-block;
     padding: 1rem 1rem; */
+    padding-right: 10px;
 }
 
 #ingredientsTitle {
-    margin-bottom: 10px; /* Add spacing between title and the ingredients list */
+    margin-bottom: 15px; /* Add spacing between title and the ingredients list */
+    font-size: 24px;
 }
 
+#ingredientsTextBox {
+    width: 200%; /* Setting the width to 100% match container */
+    margin-top: 10px;
+}
 
 .ingredient-image {
     /* Add styles for the ingredient images as needed */
