@@ -47,6 +47,11 @@ sandwichMenu.addEventListener('click', (e) => {
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
     ingredientsList.innerHTML = ""
 
+    let mySound = new Audio('./audio/ULC7YZK-order-up-with-bell-ding.mp3')
+    mySound.play()
+
+
+
     focusedSandwichId = sandwichId
     fetch(`http://localhost:3000/sandwiches/${sandwichId}`)
         .then(res => res.json())
