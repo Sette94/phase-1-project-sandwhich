@@ -4,6 +4,7 @@
 const sandwichMenu = document.getElementById('menu')
 const ingredientsList = document.getElementById('ingredients')
 const focusedSandwich = document.getElementById('focusedSandwich')
+const commentSection = document.getElementById('comments')
 
 // Setting a global variable 
 let allSandwiches = []
@@ -71,8 +72,6 @@ sandwichMenu.addEventListener('click', (e) => {
                     })
             })
         })
-
-
 })
 
 
@@ -115,6 +114,11 @@ sandwichForm.addEventListener('submit', (event) => {
     })
         .catch(error => console.error('Error:', error));
     sandwichForm.reset()
+
+    // making a list of new comments
+    const newComment = document.createElement('li')
+    newComment.textContent = filteredSandwich[0].commentsArr
+    commentSection.append(newComment)
 })
 
 
