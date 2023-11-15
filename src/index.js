@@ -127,6 +127,7 @@ sandwichForm.addEventListener('submit', (event) => {
     sandwichForm.reset()
 
     // making a list of new comments
+    commentSection.innerHTML = ''
 
     filteredSandwich[0].commentsArr.forEach(comment => {
         const newComment = document.createElement('li')
