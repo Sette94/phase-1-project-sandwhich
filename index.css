@@ -67,16 +67,18 @@ h3 {
 }
 
 #randomButton {
-    background: #edb2c2;
+    background: none;
     padding: 10px 15px;
-    width: 10%;
-    height: 10%;
+    width: 50%;
+    height: 50%;
+    border: none;
+
 }
 
 .randomButtonImage {
-    width: 200%;
-    height: 200%;
-
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
 }
 
 #randomButtonContainer {
