@@ -38,9 +38,7 @@ sandwichMenu.addEventListener('click', (e) => {
     const sandwichForm = document.getElementById('sandwichForm');
     sandwichForm.addEventListener('submit', function (event) {
         event.preventDefault();
-        console.log(event.target["new-comment"].value)
 
-        console.log(sandwichId);
         sandwhichComments.push(event.target["new-comment"].value)
 
         fetch(`http://localhost:3000/sandwiches/${sandwichId}`, {
@@ -95,7 +93,6 @@ function addFocusedSandwich(sandwich) {
 
 function renderSandwichIngredientList(ingredients) {
 
-    console.log(ingredients)
     const ul = document.createElement('ul')
     ingredientsList.append(ul)
 
@@ -133,7 +130,20 @@ randomButtonContainer.appendChild(randomButton)
 randomButtonContainer.addEventListener('click', (e) => {
     getrandomSandwich()
         .then(randomSandwichId => {
+
             console.log(randomSandwichId)
+
+            fetch(`http://localhost:3000/sandwiches/${randomSandwichId}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    commentsArr: sandwhichComments
+                }),
+            })
+                .catch(error => console.error('Error:', error))
+
             fetch(`http://localhost:3000/sandwiches/${randomSandwichId}`)
                 .then(res => res.json())
                 .then(data => {
