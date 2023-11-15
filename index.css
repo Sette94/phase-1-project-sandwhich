@@ -68,6 +68,12 @@ h3 {
 #page-container {
     position: relative;
     display: flex;
+    max-height: 700px;
+    width: 100%;
+    min-width: 200px;
+    height: 100%;
+    margin: 0 auto;
+    top: 0%;
 }
 
 #focusedSandwich {
