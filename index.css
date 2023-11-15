@@ -23,6 +23,12 @@ h3 {
     /* Center the images vertically */
 }
 
+.sandwich-clicked {
+    width: 600px;
+    height: 600px;
+
+}
+
 
 #pageContainer {
     display: flex;

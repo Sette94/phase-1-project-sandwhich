@@ -128,7 +128,11 @@
         "good",
         "Good!\n",
         "Great!",
-        "Hella"
+        "Hella",
+        "Chicken",
+        "Chicken Fred",
+        "Fred",
+        "Test"
       ]
     },
     {
@@ -159,7 +163,9 @@
         8
       ],
       "url": "https://assets.surlatable.com/m/7647b763e3347046/webimage-REC_291715_MonteCristo.jpg",
-      "commentsArr": []
+      "commentsArr": [
+        "Count of a good sandwich"
+      ]
     },
     {
       "id": 4,

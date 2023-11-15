@@ -47,7 +47,7 @@ sandwichMenu.addEventListener('click', (e) => {
     const clickedImg = e.target;
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
     ingredientsList.innerHTML = ""
-    ingredientsListTitle = document.createElement('h3')
+    const ingredientsListTitle = document.createElement('h3')
     ingredientsListTitle.textContent = "Ingredients"
     ingredientsList.appendChild(ingredientsListTitle)
 
@@ -72,6 +72,17 @@ sandwichMenu.addEventListener('click', (e) => {
                     })
             })
         })
+
+    commentSection.innerHTML = ""
+    let filteredSandwich = allSandwiches.filter(allSandwiches => allSandwiches.id == focusedSandwichId);
+    filteredSandwich[0].commentsArr.forEach(comment => {
+        const newComment = document.createElement('li')
+        newComment.textContent = comment
+        commentSection.append(newComment)
+
+    })
+
+
 })
 
 
@@ -116,9 +127,13 @@ sandwichForm.addEventListener('submit', (event) => {
     sandwichForm.reset()
 
     // making a list of new comments
-    const newComment = document.createElement('li')
-    newComment.textContent = filteredSandwich[0].commentsArr
-    commentSection.append(newComment)
+
+    filteredSandwich[0].commentsArr.forEach(comment => {
+        const newComment = document.createElement('li')
+        newComment.textContent = comment
+        commentSection.append(newComment)
+
+    })
 })
 
 
@@ -179,9 +194,20 @@ randomButtonContainer.addEventListener('click', (e) => {
                 .then(data => {
                     focusedSandwich.innerHTML = ""
                     ingredientsList.innerHTML = ""
-                    ingredientsListTitle = document.createElement('h3')
+                    commentSection.innerHTML = ""
+
+                    const ingredientsListTitle = document.createElement('h3')
                     ingredientsListTitle.textContent = "Ingredients"
                     ingredientsList.appendChild(ingredientsListTitle)
+
+                    let filteredSandwich = allSandwiches.filter(allSandwiches => allSandwiches.id == focusedSandwichId);
+                    filteredSandwich[0].commentsArr.forEach(comment => {
+                        const newComment = document.createElement('li')
+                        newComment.textContent = comment
+                        commentSection.append(newComment)
+
+                    })
+
                     console.log(data.url)
                     addFocusedSandwich(data)
                     let ingredientsIds = data['sandwich-ingredients-ids']
@@ -194,6 +220,7 @@ randomButtonContainer.addEventListener('click', (e) => {
                     })
                 })
         })
+
 
 })
 
