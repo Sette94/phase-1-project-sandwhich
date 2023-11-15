@@ -8,26 +8,7 @@ html {
     color: #fff3f5;
 }
 
-#randomButton {
-    background: #edb2c2;
-    padding: 10px 15px;
-}
 
-#randomButtonContainer {
-    position: absolute;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    top: 90%;
-    left: calc(60px + 20px);
-    transform: translate(50%, -50%);
-
-}
-
-#sandwichForm {
-    margin-top: 20px;
-}
 
 h3 {
     background: #c45165
@@ -42,6 +23,50 @@ h3 {
     /* Center the images vertically */
 }
 
+
+#pageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 900px;
+    height: 400px;
+    align-content: space-between;
+}
+
+#randomButton {
+    background: #edb2c2;
+    padding: 10px 15px;
+    width: 10%;
+    height: 10%;
+}
+
+.randomButtonImage {
+    width: 200%;
+    height: 200%;
+
+}
+
+#randomButtonContainer {
+    position: absolute;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    top: 90%;
+    left: calc(60px + 20px);
+    transform: translate(50%, -50%);
+
+}
+
+
+
+#sandwichForm {
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-start;
+}
+
+
 .sandwich-image {
     width: 120px;
     /* Set the width of each image */
@@ -53,76 +78,48 @@ h3 {
     /*Add some margin between the images*/
 }
 
+
+
+#ingredients {
+    display: flex;
+    /* Use flexbox to horizontally align the images */
+    justify-content: center;
+    /* Center the images horizontally */
+    flex-direction: column;
+
+}
+
+
+
 .ingredient-image {
     width: 80px;
     /* Set the width of each image */
     height: 80px;
     /* Set the height of each image */
-    object-fit: cover;
     /* Maintain aspect ratio while filling the container */
     margin: 5px;
     /*Add some margin between the images*/
 }
 
-#page-container {
-    position: relative;
-    display: flex;
-    max-height: 700px;
-    width: 100%;
-    min-width: 200px;
-    height: 100%;
-    margin: 0 auto;
-    top: 0%;
-}
 
-#focusedSandwich {
+
+/* #focusedSandwich {
     position: absolute;
     top: 60%;
     right: calc(50% + 20px);
     transform: translate(50%, -50%);
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
+} */
 
-.sandwich-clicked {
+/* .sandwich-clicked {
     width: 50%;
     max-height: 70vh;
     object-fit: contain;
-}
+} */
 
 
-#IngredientsContainer {
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    /*Align items to the start (left) of the container*/
-    /* vertical-align: middle;
-    display: inline-block;
-    padding: 1rem 1rem; */
-    padding-right: 10px;
-}
 
-#ingredientsTitle {
-    margin-bottom: 15px;
-    /* Add spacing between title and the ingredients list */
-    font-size: 24px;
-}
-
-#ingredientsTextBox {
-    width: 200%;
-    /* Setting the width to 100% match container */
-    margin-top: 10px;
-}
-
-.ingredient-image {
-    /* Add styles for the ingredient images as needed */
-    max-width: 100px;
-    /* Set the maximum width of the images */
-    height: auto;
-}
 
 p {
     font-family: 'Cherry Cream Soda', sans-serif;

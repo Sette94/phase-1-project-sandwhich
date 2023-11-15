@@ -46,6 +46,9 @@ sandwichMenu.addEventListener('click', (e) => {
     const clickedImg = e.target;
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
     ingredientsList.innerHTML = ""
+    ingredientsListTitle = document.createElement('h3')
+    ingredientsListTitle.textContent = "Ingredients"
+    ingredientsList.appendChild(ingredientsListTitle)
 
     let mySound = new Audio('./audio/ULC7YZK-order-up-with-bell-ding.mp3')
     mySound.play()
@@ -153,9 +156,13 @@ function renderSandwichIngredientList(ingredients) {
 // Creating variables and click event to generate a random image to the center of the page and ingredients list on the right side
 const randomButtonContainer = document.getElementById('randomButtonContainer')
 let randomButton = document.createElement('button')
+
 randomButton.setAttribute('id', 'randomButton')
+
 sandwhichImage = document.createElement('img')
 sandwhichImage.src = './images/RandomSandwhich.PNG'
+sandwhichImage.classList.add('randomButtonImage')
+
 randomButton.appendChild(sandwhichImage)
 randomButtonContainer.appendChild(randomButton)
 
@@ -168,6 +175,9 @@ randomButtonContainer.addEventListener('click', (e) => {
                 .then(data => {
                     focusedSandwich.innerHTML = ""
                     ingredientsList.innerHTML = ""
+                    ingredientsListTitle = document.createElement('h3')
+                    ingredientsListTitle.textContent = "Ingredients"
+                    ingredientsList.appendChild(ingredientsListTitle)
                     console.log(data.url)
                     addFocusedSandwich(data)
                     let ingredientsIds = data['sandwich-ingredients-ids']
