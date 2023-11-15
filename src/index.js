@@ -69,14 +69,34 @@ sandwichMenu.addEventListener('click', (e) => {
 
 
 //Comment form, each update is only pushed to the focused image
-const sandwichForm = document.getElementById('sandwichForm');
-sandwichForm.addEventListener('submit', (event) => { addComments(event, focusedSandwichId) })
+// const sandwichForm = document.getElementById('sandwichForm');
+// sandwichForm.addEventListener('submit', (event) => { addComments(event, focusedSandwichId) })
 
-function addComments(event, sandwichId) {
+// function addComments(event, sandwichId) {
+//     event.preventDefault()
+//     let filteredSandwich = allSandwiches.filter(allSandwiches => allSandwiches.id == sandwichId);
+//     filteredSandwich[0].commentsArr.push(event.target["new-comment"].value)
+//     fetch(`http://localhost:3000/sandwiches/${sandwichId}`, {
+//         method: 'PATCH',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//             commentsArr: filteredSandwich[0].commentsArr
+//         }),
+//     })
+//         .catch(error => console.error('Error:', error));
+//     sandwichForm.reset()
+// }
+
+
+
+const sandwichForm = document.getElementById('sandwichForm');
+sandwichForm.addEventListener('submit', (event) => {
     event.preventDefault()
-    let filteredSandwich = allSandwiches.filter(allSandwiches => allSandwiches.id == sandwichId);
+    let filteredSandwich = allSandwiches.filter(allSandwiches => allSandwiches.id == focusedSandwichId);
     filteredSandwich[0].commentsArr.push(event.target["new-comment"].value)
-    fetch(`http://localhost:3000/sandwiches/${sandwichId}`, {
+    fetch(`http://localhost:3000/sandwiches/${focusedSandwichId}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -87,7 +107,15 @@ function addComments(event, sandwichId) {
     })
         .catch(error => console.error('Error:', error));
     sandwichForm.reset()
-}
+})
+
+
+
+
+
+
+
+
 
 
 //The function to create the image in the center of the page 
@@ -169,25 +197,3 @@ function getrandomSandwich() {
 
 
 
-
-
-//TO DO: I want to ensure that no matter how many times I click on images the form below will only patch 1 of them 
-// let sandwichForm = document.getElementById('focusedSandwich');
-// console.log(sandwichForm)
-
-// sandwichForm.addEventListener('submit', function (event) {
-//     event.preventDefault();
-
-//     allSandwiches.commentsArr.push(event.target["new-comment"].value)
-
-//     fetch(`http://localhost:3000/sandwiches/${sandwich.id}`, {
-//         method: 'PATCH',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             commentsArr: allSandwiches.commentsArr
-//         }),
-//     })
-//         .catch(error => console.error('Error:', error));
-// });
