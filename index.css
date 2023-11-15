@@ -39,6 +39,11 @@ h3 {
     align-content: space-between;
 }
 
+#pageContainer:nth-child(3) {
+    align-self: flex-end;
+    row-gap: 10em;
+}
+
 #randomButton {
     background: #edb2c2;
     padding: 10px 15px;
@@ -52,7 +57,7 @@ h3 {
 
 }
 
-#randomButtonContainer {
+/* #randomButtonContainer {
     position: absolute;
     flex: 1;
     display: flex;
@@ -62,7 +67,7 @@ h3 {
     left: calc(60px + 20px);
     transform: translate(50%, -50%);
 
-}
+} */
 
 
 
