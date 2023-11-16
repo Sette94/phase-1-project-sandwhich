@@ -182,6 +182,8 @@ h4 {
     /* Set the height of each image */
     margin: 5px;
     /*Add some margin between the images*/
+    mix-blend-mode: multiply;
+
 }
 
 .ingredients-list {
