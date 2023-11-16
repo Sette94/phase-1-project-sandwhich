@@ -118,13 +118,6 @@ sandwichForm.addEventListener('submit', (event) => {
 
 
 
-
-
-
-
-
-
-
 //The function to create the image in the center of the page 
 function addFocusedSandwich(sandwich) {
     const h2 = document.createElement('h2')

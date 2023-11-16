@@ -107,6 +107,11 @@ h3 {
 
 }
 
+.randomButtonImage:active {
+    transform: scale(0.9);
+
+}
+
 .randomButtonImage {
     width: 100%;
     height: 100%;
