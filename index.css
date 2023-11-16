@@ -32,10 +32,16 @@ li {
 
 
 
-​ #title {
+h2 {
+    font-family: 'Cherry Cream Soda', sans-serif;
+    /* Set font for PageTitle*/
+    font-size: 45px;
+    /* Set font size for Page Title*/
     background: #362945;
     color: #fff3f5;
+
 }
+
 
 h3 {
     background: #c45165
@@ -190,13 +196,6 @@ p {
         /* Move Ingredients List to the right side of the page. */
 }
 
-h2 {
-    font-family: 'Cherry Cream Soda', sans-serif;
-    /* Set font for PageTitle*/
-    font-size: 45px;
-    /* Set font size for Page Title*/
-
-}
 
 
 .enlarge:hover {
