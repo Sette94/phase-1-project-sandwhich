@@ -154,6 +154,7 @@ h4 {
     /* Maintain aspect ratio while filling the container */
     margin: 5px;
     /*Add some margin between the images*/
+    border-radius: 10px;
 }
 
 
