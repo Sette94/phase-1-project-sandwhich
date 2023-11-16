@@ -14,7 +14,7 @@ html {
     height: 50px;
     padding: 0 0 0 20px;
     line-height: 20px;
-    background: #fff url("https://i.stack.imgur.com/8zEoh.png") no-repeat -75px -160px;
+    background: #fff url("./images/looseleaf.png") no-repeat -75px -160px;
     font-family: 'Cherry Cream Soda', sans-serif;
 }
 
@@ -25,7 +25,7 @@ li {
     padding: 0 0 0 20px;
     line-height: 40px;
     color: white;
-    background: #fff url("https://media.istockphoto.com/id/589091614/photo/old-school-chalkboard.jpg?s=612x612&w=0&k=20&c=9xez5o5dkHDoH35YC1p5Iq-IuOgpvtwJcQgz_Pq1wOQ=") no-repeat -75px -160px;
+    background: #fff url("./images/chalkboard.jpg") no-repeat -75px -160px;
     font-family: 'Callie Chalk Font', sans-serif;
 }
 
