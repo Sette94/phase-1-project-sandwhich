@@ -86,27 +86,6 @@ sandwichMenu.addEventListener('click', (e) => {
 })
 
 
-//Comment form, each update is only pushed to the focused image
-// const sandwichForm = document.getElementById('sandwichForm');
-// sandwichForm.addEventListener('submit', (event) => { addComments(event, focusedSandwichId) })
-
-// function addComments(event, sandwichId) {
-//     event.preventDefault()
-//     let filteredSandwich = allSandwiches.filter(allSandwiches => allSandwiches.id == sandwichId);
-//     filteredSandwich[0].commentsArr.push(event.target["new-comment"].value)
-//     fetch(`http://localhost:3000/sandwiches/${sandwichId}`, {
-//         method: 'PATCH',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//             commentsArr: filteredSandwich[0].commentsArr
-//         }),
-//     })
-//         .catch(error => console.error('Error:', error));
-//     sandwichForm.reset()
-// }
-
 
 
 const sandwichForm = document.getElementById('sandwichForm');
@@ -161,6 +140,7 @@ function addFocusedSandwich(sandwich) {
 //The function to create the list of ingredients on the right side of the page 
 function renderSandwichIngredientList(ingredients) {
     const ul = document.createElement('ul')
+    ul.classList.add('ingredients-list')
     ingredientsList.append(ul)
     const p = document.createElement('p')
     p.innerHTML = ingredients.name

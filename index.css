@@ -3,13 +3,36 @@ html {
     background: #f1c67a;
 }
 
-body {
+/* body {
     min-height: 100vh;
     margin: 0 auto;
     width: 100%
+} */
+
+#new-comment {
+    width: 300px;
+    height: 50px;
+    padding: 0 0 0 20px;
+    line-height: 20px;
+    background: #fff url("https://i.stack.imgur.com/8zEoh.png") no-repeat -75px -160px;
+    font-family: 'Cherry Cream Soda', sans-serif;
 }
 
-#title {
+
+li {
+    width: 300px;
+    height: 100%;
+    padding: 0 0 0 20px;
+    line-height: 40px;
+    color: white;
+    background: #fff url("https://media.istockphoto.com/id/589091614/photo/old-school-chalkboard.jpg?s=612x612&w=0&k=20&c=9xez5o5dkHDoH35YC1p5Iq-IuOgpvtwJcQgz_Pq1wOQ=") no-repeat -75px -160px;
+    font-family: 'Callie Chalk Font', sans-serif;
+}
+
+
+
+
+​ #title {
     background: #362945;
     color: #fff3f5;
 }
@@ -50,6 +73,8 @@ h3 {
     margin: 20px;
     max-width: 300px;
     width: 100%;
+    font-family: 'Cherry Cream Soda', sans-serif;
+
 }
 
 #focusedSandwich {
@@ -59,6 +84,7 @@ h3 {
     /* Set your preferred maximum width */
     width: 100%;
     /* Take full width within the container */
+
 }
 
 #comments {
@@ -95,6 +121,7 @@ h3 {
     /* Set your preferred maximum width */
     width: 100%;
     /* Take full width within the container */
+
 }
 
 
@@ -117,11 +144,14 @@ h3 {
     justify-content: center;
     /* Center the images horizontally */
     flex-direction: column;
-    max-width: 400px;
+    max-width: 300px;
     /* Set your preferred maximum width */
     width: 100%;
+    font-family: 'Cherry Cream Soda', sans-serif;
+
 
 }
+
 
 
 
@@ -130,27 +160,31 @@ h3 {
     /* Set the width of each image */
     height: 80px;
     /* Set the height of each image */
-    /* Maintain aspect ratio while filling the container */
     margin: 5px;
     /*Add some margin between the images*/
 }
 
+.ingredients-list {
+    height: 65px;
+}
 
-
-h3 {
+#sandwich-comments {
     display: flex;
     /* Use flexbox to horizontally align the images */
     justify-content: left;
     /* Center the images horizontally */
     flex-direction: column;
+
 }
+
+
 
 
 
 p {
     font-family: 'Cherry Cream Soda', sans-serif;
     /* Set font for Ingredients list*/
-    font-size: 22px;
+    font-size: 17px;
     /* Set font size for Ingredients list*/
     float: right
         /* Move Ingredients List to the right side of the page. */
