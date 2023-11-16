@@ -68,6 +68,7 @@ h4 {
 .sandwich-clicked {
     width: 500px;
     height: 500px;
+    border-radius: 10px;
 
 }
 
@@ -125,6 +126,7 @@ h4 {
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    border-radius: 10px;
 }
 
 #randomButtonContainer {
