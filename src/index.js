@@ -52,6 +52,7 @@ sandwichMenu.addEventListener('click', (e) => {
     ingredientsList.appendChild(ingredientsListTitle)
 
     let mySound = new Audio('./audio/ULC7YZK-order-up-with-bell-ding.mp3')
+    mySound.volume = 0.3
     mySound.play()
 
 
@@ -161,6 +162,7 @@ randomButtonContainer.appendChild(randomButton)
 
 randomButtonContainer.addEventListener('click', (e) => {
     let mySound = new Audio('./audio/ULC7YZK-order-up-with-bell-ding.mp3')
+    mySound.volume = 0.3
     mySound.play()
     getrandomSandwich()
         .then(randomSandwichId => {
