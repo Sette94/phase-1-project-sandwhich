@@ -160,6 +160,8 @@ randomButton.appendChild(sandwhichImage)
 randomButtonContainer.appendChild(randomButton)
 
 randomButtonContainer.addEventListener('click', (e) => {
+    let mySound = new Audio('./audio/ULC7YZK-order-up-with-bell-ding.mp3')
+    mySound.play()
     getrandomSandwich()
         .then(randomSandwichId => {
             focusedSandwichId = randomSandwichId
