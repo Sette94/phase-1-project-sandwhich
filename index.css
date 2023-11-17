@@ -1,13 +1,6 @@
-/*1. Statz's code: I'm adding some CSS styles to control the size and layout of the images. */
 html {
     background: #f1c67a;
 }
-
-/* body {
-    min-height: 100vh;
-    margin: 0 auto;
-    width: 100%
-} */
 
 #new-comment {
     width: 300px;
@@ -28,8 +21,6 @@ li {
     background: #fff url("./images/chalkboard.jpg") no-repeat -75px -160px;
     font-family: 'Callie Chalk Font', sans-serif;
 }
-
-
 
 
 h2 {
@@ -203,9 +194,6 @@ h4 {
     flex-direction: column;
 
 }
-
-
-
 
 
 p {

@@ -6,7 +6,7 @@ const ingredientsList = document.getElementById('ingredients')
 const focusedSandwich = document.getElementById('focusedSandwich')
 const commentSection = document.getElementById('comments')
 
-// Setting a global variable 
+// Setting global variables
 let allSandwiches = []
 let focusedSandwichId = ''
 
@@ -23,7 +23,7 @@ fetch('http://localhost:3000/sandwiches')
     })
 
 
-// Function to render images on the Menu 
+//Function to render images on the Menu 
 function createSandwichImage(sandwich) {
     const img = document.createElement('img')
     img.src = sandwich.url
@@ -42,7 +42,7 @@ function createSandwichImage(sandwich) {
 }
 
 
-// Click event on the menu to render the selected image in the center of the page and the ingredients list on the side 
+//Click event on the menu to render the selected image in the center of the page and the ingredients list on the side 
 sandwichMenu.addEventListener('click', (e) => {
     const clickedImg = e.target;
     const sandwichId = clickedImg.getAttribute('data-id'); // Get the value of the data-id attribute
@@ -105,8 +105,6 @@ sandwichForm.addEventListener('submit', (event) => {
     })
         .catch(error => console.error('Error:', error));
     sandwichForm.reset()
-
-    // making a list of new comments
     commentSection.innerHTML = ''
 
     filteredSandwich[0].commentsArr.forEach(comment => {
@@ -125,9 +123,9 @@ function addFocusedSandwich(sandwich) {
     h2.textContent = sandwich.name
     const img = document.createElement('img')
     img.src = sandwich.url
-    img.classList.add('sandwich-clicked') //Add a CSS class to the img element
+    img.classList.add('sandwich-clicked')
     focusedSandwich.appendChild(h2)
-    focusedSandwich.appendChild(img) //Append the created img element to the sandwichMenu div
+    focusedSandwich.appendChild(img)
 }
 
 
@@ -140,14 +138,14 @@ function renderSandwichIngredientList(ingredients) {
     p.innerHTML = ingredients.name
     const img = document.createElement('img')
     img.src = ingredients.url
-    img.classList.add('ingredient-image') //Add a CSS class to the img element
+    img.classList.add('ingredient-image')
     ul.appendChild(img)
     ul.appendChild(p)
 }
 
 
 
-// Creating variables and click event to generate a random image to the center of the page and ingredients list on the right side
+//Creating variables and click event to generate a random image to the center of the page and ingredients list on the right side
 const randomButtonContainer = document.getElementById('randomButtonContainer')
 let randomButton = document.createElement('button')
 
@@ -202,7 +200,7 @@ randomButtonContainer.addEventListener('click', (e) => {
 
 })
 
-// Function to get a random sandwich from the array of sandwiches
+//Function to get a random sandwich from the array of sandwiches
 function getrandomSandwich() {
     return fetch('http://localhost:3000/sandwiches')
         .then(response => {
